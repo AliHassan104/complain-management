@@ -1,0 +1,268 @@
+<!-- App Bottom Menu -->
+<div  class="appBottomMenu">
+
+  <a href="javascript:;" class="item" data-toggle="modal"  data-target="#sidebarPanel">
+      <div class="col">
+          <img width="30px" src="assets/icons/menu2.png"/>
+      </div>
+  </a>
+
+  <a  class="item" [routerLink]="['/home']" >
+      <div class="col">
+          <img width="30px" src="assets/icons/home2.png"/>
+      </div>
+  </a>
+
+  <!-- <button type="button" class="btn btn-primary" >
+    Launch demo modal
+  </button> -->
+
+  <!-- Dialog Block Button -->
+
+
+  <a [routerLink]="['/mycomplain']"  class="item">
+
+      <div class="col">
+          <!-- <ion-icon src="assets/friends.svg"></ion-icon> -->
+
+          <img width="33px" src="assets/icons/complain2.png"/>
+          <!-- <img src="https://img.icons8.com/material-sharp/24/1A1A1A/complaint.png"/> -->
+          <!-- <img src="https://img.icons8.com/ios-filled/35/000000/complaint.png"/> -->
+          <i class="bi bi-person"></i>
+          <span  *ngIf="reqCount>0" class="badge badge-danger" >{{reqCount}}</span>
+      </div>
+  </a>
+
+
+
+
+
+
+
+
+
+  <a class="item" data-toggle="modal" data-target="#DialogBlockButton">
+      <div class="col">
+          <img width="25px" src="assets/icons/logout2.png"/>
+          <!-- <i class="bi bi-bell-fill"></i> -->
+          <!-- <span *ngIf="notificationCount>0" class="badge badge-danger" >{{notificationCount}}</span> -->
+      </div>
+  </a>
+
+
+
+</div>
+<!-- * App Bottom Menu -->
+
+<!-- App Sidebar -->
+<div class="modal fade panelbox panelbox-left" id="sidebarPanel" tabindex="-1" role="dialog" >
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-body p-0">
+
+              <!-- profile box -->
+              <div class="profileBox">
+
+                  <div class="image-wrapper">
+
+                  </div>
+
+                  <div class="in">
+                      <strong data-dismiss="modal">{{userAreaName.firstname + " " + userAreaName.lastname | uppercase }}</strong>
+
+
+              </div>
+                  <a href="javascript:;" class="close-sidebar-button" data-dismiss="modal">
+                      <ion-icon src="assets/close.svg"></ion-icon>
+                  </a>
+              </div>
+              <!-- * profile box -->
+
+              <ul class="listview flush transparent no-line image-listview mt-2">
+
+                  <li>
+                      <a  class="item" data-dismiss="modal" [routerLink]="['/home']">
+                          <div class="icon-box bg-primary">
+                              <!-- <ion-icon src="assets/home.svg"></ion-icon> -->
+                              <!-- <ion-icon name="home-outline"></ion-icon> -->
+                              <img width="24px" src="assets/home.svg"/>
+                          </div>
+                          <div class="in">
+                              Home
+                          </div>
+                      </a>
+                  </li>
+                  <li>
+                      <a class="item" [routerLink]="['/mycomplain']" data-dismiss="modal">
+                          <div class="icon-box bg-primary">
+                            <img width="24px" src="assets/icons/complain.png"/>
+                               </div>
+                          <div class="in">
+                              <div>My Complain</div>
+                              <span *ngIf="chatCount>0" class="badge badge-danger">{{chatCount}}</span>
+                          </div>
+                      </a>
+                  </li>
+                  <li>
+                      <a [routerLink]="['/watertiming']" class="item" data-dismiss="modal">
+                          <div class="icon-box bg-primary">
+                              <!-- <ion-icon src="assets/article.svg"></ion-icon> -->
+                              <!-- <ion-icon name="water-outline"></ion-icon> -->
+                              <img width="24px" src="assets/icons/water.png"/>
+                              <!-- <img src="https://img.icons8.com/android/24/1A1A1A/water.png"/> -->
+
+                          </div>
+                          <div class="in">
+                              <div>Water Timing</div>
+
+                          </div>
+                      </a>
+                  </li>
+                  <li>
+                      <a [routerLink]="['/achievement']" class="item" data-dismiss="modal">
+                          <div class="icon-box bg-primary">
+                              <img width="24px" src="assets/icons/achievement.png"/>
+                          </div>
+                          <div class="in">
+                              <div>Achievement</div>
+                          </div>
+                      </a>
+                  </li>
+                  <li>
+                      <a [routerLink]="['/event']" class="item" data-dismiss="modal">
+                          <div class="icon-box bg-primary">
+                            <img width="24px" src="assets/icons/event.png"/>
+                          </div>
+                          <div class="in">
+                              <div>Event</div>
+
+                          </div>
+                      </a>
+                  </li>
+                  <li>
+                      <a [routerLink]="['/document']" class="item" data-dismiss="modal">
+                          <div class="icon-box bg-primary">
+                            <img width="24px" src="assets/icons/document.png"/>
+                              <!-- <ion-icon src="assets/article.svg"></ion-icon> -->
+                              <!-- <ion-icon name="document-outline"></ion-icon> -->
+                              <!-- <img src="https://img.icons8.com/ios-glyphs/30/000000/document--v1.png"/> -->
+                              <!-- <img src="https://img.icons8.com/material-outlined/24/1A1A1A/document--v1.png"/> -->
+                          </div>
+                          <div class="in">
+                              <div>Document</div>
+
+                          </div>
+                      </a>
+                  </li>
+
+                  <li >
+                      <a [routerLink]="['/pollingquestion']" class="item" data-dismiss="modal">
+                          <div class="icon-box bg-primary">
+                            <img width="26px" src="assets/icons/survey.png"/>
+                              <!-- <img src="https://img.icons8.com/ios-glyphs/30/000000/survey--v2.png"/> -->
+
+                          </div>
+                          <div class="in">
+                              <div>Survey</div>
+                              <!-- <span class="badge badge-danger">5</span> -->
+                          </div>
+                      </a>
+                  </li>
+
+                  <li >
+                      <a [routerLink]="['/help']" class="item" data-dismiss="modal">
+                          <div class="icon-box bg-primary">
+
+                            <img width="26px" src="assets/icons/contact.png"/>
+                              <!-- <ion-icon src="assets/calendar.svg"></ion-icon> -->
+                              <!-- <ion-icon name="help-circle-outline"></ion-icon> -->
+                              <!-- <img src="https://img.icons8.com/material-outlined/24/1A1A1A/help.png"/> -->
+                          </div>
+                          <div class="in">
+                              <div>Contact Us</div>
+                              <!-- <span class="badge badge-danger">5</span> -->
+                          </div>
+                      </a>
+                  </li>
+
+                  <!-- <li *ngIf="checkUserType()">
+                      <a [routerLink]="['/addevent']" class="item" data-dismiss="modal">
+                          <div class="icon-box bg-primary">
+                              <ion-icon src="assets/calendar.svg"></ion-icon>
+                          </div>
+                          <div class="in">
+                              <div>Post on Market place</div>
+                          </div>
+                      </a>
+                  </li> -->
+
+              </ul>
+
+
+            </div>
+
+
+          <!-- sidebar buttons -->
+          <!-- <div class="sidebar-buttons">
+              <a  class="button" data-dismiss="modal">
+                  <img width="25px" src="assets/icons/logout2.png"/>
+              </a>
+          </div> -->
+          <!-- * sidebar buttons -->
+      </div>
+  </div>
+</div>
+
+
+<!-- Notification -->
+<div id="notification-7" class="notification-box">
+  <div class="notification-dialog ios-style">
+      <div class="notification-header">
+          <div class="in">
+              <img src="assets/img/sample/avatar/avatar3.jpg" alt="image" class="imaged w24 rounded">
+              <strong>Pablo Cambeiro</strong>
+          </div>
+          <div class="right">
+              <span>just now</span>
+              <a href="#" class="close-button">
+                  <ion-icon name="close-circle"></ion-icon>
+              </a>
+          </div>
+      </div>
+      <div class="notification-content">
+          <div class="in">
+              <h3 class="subtitle">Hello There</h3>
+              <div class="text">
+                  This is a simple iOS style notification.
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div id="toast-9" class="toast-box toast-center">
+  <div class="in">
+      <div class="text">
+          Centered Toast
+      </div>
+  </div>
+</div>
+
+<div class="modal fade dialogbox" #dbb id="DialogBlockButton"  data-keyboard="false" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title">Confirmation</h5>
+          </div>
+          <div class="modal-body">
+              Are you sure you want to logout
+          </div>
+          <div class="modal-footer">
+              <div class="btn-list">
+                  <a (click)="logout()" class="btn btn-text-danger btn-block" data-bs-dismiss="modal">LOG OUT</a>
+                  <!-- <a (click)="closeDialogue()" class="btn btn-text-secondary btn-block " data-bs-dismiss="modal">CLOSE</a> -->
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

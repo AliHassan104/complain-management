@@ -1,0 +1,42 @@
+<div style="height: 100%!important;overflow: auto;" class="container">
+
+  <div class="appHeader text-light" >
+    <div class="pageTitle">{{areaName}} Survey</div>
+  <div class="right">
+  </div>
+</div>
+
+<div class="" style="margin-top: 70px;">
+
+</div>
+
+<div class="" *ngIf="lists.length > 0; else nopollingfound">
+
+<div style="margin-top: 10px;" class="accordion" id="accordionExample" *ngFor="let list of lists; let i = index">
+<div class="card" >
+
+  <div class="card-header" id="headingTwo" >
+    <h5 class="mb-0">
+      <a [routerLink]="['/pollingquestion/',list.id]">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" [attr.data-target]="'#abc'+list.id"  aria-expanded="false" [attr.aria-controls]="'abc'+list.id">
+          {{i+1 + " - " + list.question}} <b> (Click Here) </b>
+        </button>
+      </a>
+    </h5>
+  </div>
+</div>
+</div>
+</div>
+
+
+<ng-template #nopollingfound>
+  <div class="card" style="width: 75%;position: absolute;top: 40%;left: 50%;transform: translate(-50%, -50%);">
+    <div class="card-body">
+        <div class="text-center">
+          <p>No Survey Question Available</p>
+        </div>
+    </div>
+  </div>
+</ng-template>
+
+<app-bottom-menu></app-bottom-menu>
