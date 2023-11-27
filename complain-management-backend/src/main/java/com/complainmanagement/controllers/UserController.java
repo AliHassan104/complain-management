@@ -1,9 +1,35 @@
 package com.complainmanagement.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.complainmanagement.dtos.UserDto;
+import com.complainmanagement.services.UserService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+
+@CrossOrigin
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api")
 public class UserController {
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @GetMapping("/user")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public ResponseEntity<List<UserDto>> getAllUsers() {
+        List<UserDto> userDtoList = userService.getAll();
+        return ResponseEntity.ok(userDtoList);
+    }
+
+    @GetMapping("/user/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public ResponseEntity<UserDto> getUserById(@PathVariable Long id) {
+        UserDto userDto = userService.findById(id);
+        return ResponseEntity.ok(userDto);
+    }
 }
